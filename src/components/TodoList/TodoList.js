@@ -1,4 +1,5 @@
-import Todo from './Todo'
+import styles from './TodoList.module.scss'
+import Todo from '../Todo/Todo'
 
 export default function TodoList ({ 
     newTodo, 
@@ -10,8 +11,10 @@ export default function TodoList ({
     deleteTodo
 }){
     return(
-        <>
-            Add New Todo:<input type="text" 
+        <div className={styles.todolist}>
+            Add New Todo:<input 
+            className={styles.input}
+            type="text" 
             value={newTodo.title} 
             onChange={(e) => {
                 setNewTodo({...newTodo, title: e.target.value})
@@ -38,6 +41,6 @@ export default function TodoList ({
                 buttonText={'Delete'}
             />
         ))}
-        </>
+        </div>
     )
 }
